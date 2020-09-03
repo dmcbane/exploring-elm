@@ -104,31 +104,25 @@ This should resolve the permissions errors for the npm commands above.
 
 Your editor is one of the most important components in the tool chain since it is where you spend most of your time.  I looked at each of the editors listed in [An Introduction to Elm](https://guide.elm-lang.org/) to determine how well they support capabilities such as syntax highlighting, formatting, diagnostics, completions, etc.  In general, the editors use **[elm-oracle](https://www.npmjs.com/package/elm-oracle)** to support Elm versions prior to 0.19 and **[@elm-tooling/elm-language-server](https://www.npmjs.com/package/@elm-tooling/elm-language-server)** for versions 0.19 and later.  Some support both.  Elm 0.19 introduced [major changes to the terminal commands](https://github.com/elm/compiler/blob/master/docs/upgrade-instructions/0.19.0.md), a new standard library, a redesigned package system, and [more](https://elm-lang.org/news/small-assets-without-the-headache).  Apparently, these changes were so extensive that many projects didn't transition to 0.19.  Since I am new to Elm, I will only be looking at 0.19 support and the following are just my impressions of how well an editor currently supports development in Elm version 0.19.  
 
-#### [Atom](https://atom.io/) with [language-elm](https://atom.io/packages/language-elm)
+#### [Atom](https://atom.io/) with [elmjutsu](https://atom.io/packages/elmjutsu)/[language-elm](https://atom.io/packages/language-elm)/[atom-ide-ui](https://atom.io/packages/atom-ide-ui)/[autocomplete-plus](https://atom.io/packages/autocomplete-plus)
 
-* Recommended in guide
-  * language-elm
-    * Windows
-      * C:\Users\dalem\AppData\Roaming\npm\elm-oracle.cmd works
-    * Linux
-      * /usr/local/bin/elm-oracle
-  * goto
-  * Syntax Highlighting - atom:language-elm
-  * Autocompletion - npm:elm-oracle and atom: language-elm
-  * Go to definition - atom:goto
-  * No linting/no format on save/always can't find elm-oracle the first time upon startup
-* Recommended in [sporo/awesome-elm](https://github.com/sporto/awesome-elm)
-  * [language-elm](https://atom.io/packages/language-elm)
-  * [elmjutsu](https://atom.io/packages/elmjutsu)
-  * [elm-navigator](https://atom.io/packages/elm-navigator)
-
+For [Atom](https://atom.io/),  you can't go wrong with [elmjutsu](https://atom.io/packages/elmjutsu) for Elm 0.19 and later.  If you follow the directions provided by the [elmjutsu](https://atom.io/packages/elmjutsu) package with the [atom-ide-ui](https://atom.io/packages/atom-ide-ui) optional recommendations, you'll have an excellent Elm development environment.
 #### [Brackets](http://brackets.io/) with [elm-brackets](https://github.com/lepinay/elm-brackets)
 
 I can't recommend Brackets for Elm development because if supports only [versions of Elm prior to 0.19](https://github.com/elm/compiler/blob/master/docs/upgrade-instructions/0.19.0.md).  If you're using Brackets and developing for an older version of Elm, it might be an option for you.
 
 #### [Emacs](https://www.gnu.org/software/emacs/) with [elm-mode](https://github.com/jcollard/elm-mode)
 
-I am a long time Vim user, but I love the Vim/Emacs hybrid configurations like [Doom Emacs](https://github.com/hlissner/doom-emacs) or [Spacemacs](https://www.spacemacs.org/) because I get the best of both worlds. If you're a roll your own configuration fan you might want to look at [Steve Purcell's Emacs configuration bundle](https://github.com/purcell/emacs.d) for ideas.  All of them use [Joseph Collard's excellent elm-mode](https://github.com/jcollard/elm-mode) which supports all Elm versions.
+[Joseph Collard's excellent elm-mode](https://github.com/jcollard/elm-mode) package supports all Elm versions and provides a top flight Elm development experience.  I am a long time Vim user and I love the Vim/Emacs hybrid configurations like [Doom Emacs](https://github.com/hlissner/doom-emacs) or [Spacemacs](https://www.spacemacs.org/) because I get the best of both worlds.  If you're a roll your own configuration fan, you might want to look at [Steve Purcell's Emacs configuration bundle](https://github.com/purcell/emacs.d) for ideas on how to configure Emacs for Elm.
+
+##### Side note
+
+Since I use Doom Emacs for development in Elm, I wanted to share a few notes.
+
+* In your `~/.doom.d/init.el` (Space f P from Doom Emacs), definitely enable `company`, `lsp` and `elm` and use `(elm +lsp)` to tell `elm-mode` to use the language server protocol.  I also enable `spell`, `javascript`, `web`, and `yaml` since we're doing front end development.
+* In your `~/.doom.d/config.el`, add `(add-to-list 'company-backends 'elm-company)` to the end of the file.
+
+Also, if you are running Windows and have trouble getting spell checking to work correctly, I found the following to be helpful: [ispell/hunspell/Windows: a fully-worked example](https://lists.gnu.org/archive/html/help-gnu-emacs/2014-04/msg00030.html).
 
 #### [JetBrains IntelliJ IDEA](https://www.jetbrains.com/idea/) or [JetBrains WebStorm](https://www.jetbrains.com/webstorm/) with  [intellij.elm](https://github.com/klazuka/intellij-elm)
 
@@ -136,9 +130,11 @@ I am a long time Vim user, but I love the Vim/Emacs hybrid configurations like [
 
 #### [LightTable](http://lighttable.com/) with [elm-light](https://github.com/rundis/elm-light)
 
-I was not able to use the Linux binary provided on LightTable.com or build a Linux binary that would run successfully on a recent version of Linux (Fedora 32, Manjaro 20.0.3, NixOS 2.3.7 or Ubuntu 20.04).
+I was not able to use the Linux binary provided on LightTable.com or build a Linux binary that would run successfully on any recent version of Linux (Fedora 32, Manjaro 20.0.3, NixOS 2.3.7 or Ubuntu 20.04).
 
-I was able to install LightTable on Windows 10 and install the elm-light plugin, but even after after following the [Elm Light Guide](https://rundis.gitbooks.io/elm-light-guide/content/) to configure the elm-light plugin on Windows 10, I was not able to use it because the elm-light plugin supports only [versions of Elm prior to 0.19](https://github.com/elm/compiler/blob/master/docs/upgrade-instructions/0.19.0.md).  You may be able to use it on older versions of Linux and with Elm versions prior to 0.19.
+I was able to install LightTable and the elm-light plugin on Windows 10, but even after after following the [Elm Light Guide](https://rundis.gitbooks.io/elm-light-guide/content/) to configure the elm-light plugin on Windows 10, I was not able to use it because the elm-light plugin supports only [versions of Elm prior to 0.19](https://github.com/elm/compiler/blob/master/docs/upgrade-instructions/0.19.0.md).
+
+At this time, I cannot recommend LightTable for Elm 0.19 development.
 
 #### [SublimeText](https://www.sublimetext.com/) with [elm-syntax-highlighting](https://github.com/evancz/elm-syntax-highlighting/)
 
