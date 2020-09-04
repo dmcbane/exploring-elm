@@ -109,24 +109,24 @@ Your editor is one of the most important components in the tool chain since it i
 For [Atom](https://atom.io/),  you can't go wrong with [elmjutsu](https://atom.io/packages/elmjutsu) for Elm 0.19 and later.  If you follow the directions provided by the [elmjutsu](https://atom.io/packages/elmjutsu) package with the [atom-ide-ui](https://atom.io/packages/atom-ide-ui) optional recommendations, you'll have an excellent Elm development environment.
 #### [Brackets](http://brackets.io/) with [elm-brackets](https://github.com/lepinay/elm-brackets)
 
-I can't recommend Brackets for Elm development because if supports only [versions of Elm prior to 0.19](https://github.com/elm/compiler/blob/master/docs/upgrade-instructions/0.19.0.md).  If you're using Brackets and developing for an older version of Elm, it might be an option for you.
+I can't recommend Brackets for Elm development because if supports only [versions of Elm prior to 0.19](https://github.com/elm/compiler/blob/master/docs/upgrade-instructions/0.19.0.md) and there doesn't seem to have been any recent updates on the plugin.  If you're using Brackets and developing for an older version of Elm, it might be an option for you.
 
 #### [Emacs](https://www.gnu.org/software/emacs/) with [elm-mode](https://github.com/jcollard/elm-mode)
 
-[Joseph Collard's excellent elm-mode](https://github.com/jcollard/elm-mode) package supports all Elm versions and provides a top flight Elm development experience.  I am a long time Vim user and I love the Vim/Emacs hybrid configurations like [Doom Emacs](https://github.com/hlissner/doom-emacs) or [Spacemacs](https://www.spacemacs.org/) because I get the best of both worlds.  If you're a roll your own configuration fan, you might want to look at [Steve Purcell's Emacs configuration bundle](https://github.com/purcell/emacs.d) for ideas on how to configure Emacs for Elm.
+[Joseph Collard's excellent elm-mode](https://github.com/jcollard/elm-mode) package supports all Elm versions and provides an excellent Elm development experience.  If you like to tune every detail of your development environment, this is the editor for you.  It can be challenging to configure if you start from out-of-the-box Emacs.  I recommend a Vim/Emacs hybrid configuration like [Doom Emacs](https://github.com/hlissner/doom-emacs) or [Spacemacs](https://www.spacemacs.org/) as a good starting point, but if you're a roll your own configuration fan, you might want to look at [Steve Purcell's Emacs configuration bundle](https://github.com/purcell/emacs.d) for ideas on how to configure Emacs for Elm.  **Definitely one of the better solutions** in this list but also more challenging to setup.
 
-##### Side note
+###### Notes
 
-Since I use Doom Emacs for development in Elm, I wanted to share a few notes.
+Below are a few notes that might be useful to you in setting up your Elm environment in Doom Emacs.
 
-* In your `~/.doom.d/init.el` (Space f P from Doom Emacs), definitely enable `company`, `lsp` and `elm` and use `(elm +lsp)` to tell `elm-mode` to use the language server protocol.  I also enable `spell`, `javascript`, `web`, and `yaml` since we're doing front end development.
+* In your `~/.doom.d/init.el` (Space f P from Doom Emacs), definitely enable `company`, `lsp` and `elm` and use `(elm +lsp)` to tell `elm-mode` to use the language server protocol.  Also enable `spell`, `javascript`, `web`, and `yaml` for front end development.
 * In your `~/.doom.d/config.el`, add `(add-to-list 'company-backends 'elm-company)` to the end of the file.
 
-Also, if you are running Windows and have trouble getting spell checking to work correctly, I found the following to be helpful: [ispell/hunspell/Windows: a fully-worked example](https://lists.gnu.org/archive/html/help-gnu-emacs/2014-04/msg00030.html).
+Also, if you are running Windows and have trouble getting spell checking to work correctly, the following may be helpful: [ispell/hunspell/Windows: a fully-worked example](https://lists.gnu.org/archive/html/help-gnu-emacs/2014-04/msg00030.html).
 
 #### [JetBrains IntelliJ IDEA](https://www.jetbrains.com/idea/) or [JetBrains WebStorm](https://www.jetbrains.com/webstorm/) with the [Elm plugin](https://plugins.jetbrains.com/plugin/10268-elm/)
 
-As you would expect from a JetBrains product, the JetBrains Elm plugin provides an exceptional development experience for the Elm developer.  If you're already using IntelliJ IDEA or WebStorm, you won't be disappointed with the Elm support.
+Easy to setup; just install the plugin.  The JetBrains Elm plugin provides an exceptional development experience for the Elm developer.  If you're already using IntelliJ IDEA or WebStorm, you won't be disappointed with the Elm support. Compared to the other editors in this list, I found the JetBrains editors to be significantly slower to startup (due to their JVM heritage), but responsive and very easy to use once they were up.  **Definitely one of the better solutions in this list.**
 
 #### [LightTable](http://lighttable.com/) with [elm-light](https://github.com/rundis/elm-light)
 
@@ -136,31 +136,9 @@ I was able to install LightTable and the elm-light plugin on Windows 10, but eve
 
 At this time, I cannot recommend LightTable for Elm 0.19 development.
 
-#### [SublimeText](https://www.sublimetext.com/) with [elm-syntax-highlighting](https://github.com/evancz/elm-syntax-highlighting/)
+#### [SublimeText](https://www.sublimetext.com/) with [LSP](https://packagecontrol.io/packages/LSP)/[LSP-elm](https://packagecontrol.io/packages/LSP-elm)/[elm-syntax-highlighting](https://packagecontrol.io/packages/Elm%20Syntax%20Highlighting)/[elm-format-on-save](https://packagecontrol.io/packages/Elm%20Format%20on%20Save)
 
-LSP, LSP-elm, Elm Syntax Highlighting, Elm Format on Save
-
-* LSP settings
-  * // Settings in here override those in "LSP/LSP.sublime-settings"
-    {
-    "elm": {
-      "command": ["elm-language-server", "--stdio"],
-      "enabled": true,
-      "initializationOptions": {
-        "elmAnalyseTrigger": "change"
-      },
-      "languageId": "elm",
-      "scopes": ["source.elm"],
-      "syntaxes": ["Packages/Elm Syntax Highlighting/src/elm.sublime-syntax"]
-    }	
-    }
-* LSP-elm settings
-  * {
-    	"elmLS.elmPath": "C:\\Users\\dalem\\AppData\\Roaming\\npm\\elm.cmd",
-      	"elmLS.elmFormatPath": "C:\\Users\\dalem\\AppData\\Roaming\\npm\\elm-format.cmd",
-      	"elmLS.elmTestPath": "C:\\Users\\dalem\\AppData\\Roaming\\npm\\elm-test.cmd"	
-    }
-* 
+[LSP](https://lsp.readthedocs.io/en/latest/), [LSP-elm](https://lsp.readthedocs.io/en/latest/#elm), [Elm Syntax Highlighting](https://github.com/evancz/elm-syntax-highlighting), and [Elm Format on Save](https://github.com/evancz/elm-format-on-save) combine to form a very effective development environment for Elm.  The resulting environment feels lightweight and responsive and it provides the user with just the right amount of feedback without being distracting.
 
 ####  [Vim](https://www.vim.org/) or [NeoVim](https://neovim.io/) with [elm-vim](https://github.com/ElmCast/elm-vim)
 
@@ -168,7 +146,7 @@ LSP, LSP-elm, Elm Syntax Highlighting, Elm Format on Save
 
 #### [Visual Studio Code](https://code.visualstudio.com/) with [Elm](https://github.com/elm-tooling/elm-language-client-vscode)
 
- Although 
+ Beginning users will love VSCode with Elm.  It is exceptionally easy to setup (install the [Elm plugin](https://marketplace.visualstudio.com/items?itemName=Elmtooling.elm-ls-vscode) and go) and provides all of the features you would expect from a full-featured editor.  **Definitely one of the better solutions in this list** and my recommendation for beginners or for anyone who what's to get started with minimal fuss.
 
 ## First Elm Program
 
