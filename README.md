@@ -1,6 +1,6 @@
 # An Exploration of the Elm Programming Language
 
-This is a recounting of my journey to determine if the [Elm programming language](https://elm-lang.org/) would live up to it promise and potentially become my tool of choice for web browser-based front end development. My journey started long before this recounting. Suffice it to say, that while I have more than 30 years of experience with software development and some limited experience with functional programming, I have never used Elm in any capacity.  Call it an analysis of alternatives if you will.  At least that is how it started.
+This is a recounting of my journey to determine if the [Elm programming language](https://elm-lang.org/) would live up to its promise and potentially become my tool of choice for web browser-based front end development. My journey started long before this recounting. Suffice it to say, that while I have more than 30 years of experience with software development and some limited experience with functional programming, I have never used Elm in any capacity.  Call it an analysis of alternatives if you will.  At least that is how it started.
 
 I started keeping this journal after playing around with [An Introduction to Elm](https://guide.elm-lang.org/) a bit.  Having recently fought the HTM5/CSS/JavaScript yet battle again, I was looking for a better way and Elm looked promising.
 
