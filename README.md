@@ -35,7 +35,7 @@ npm install -g elm-oracle
 ##### Elm versions 0.19 and greater
 
 ```bash
-npm install -g @elm-tooling/elm-language-server
+npm install -g @elm-tooling/elm-language-server elm-analyse
 ```
 
 And finally, add the ability to run unit tests.
@@ -60,7 +60,7 @@ npm remove -g $(npm list -g --depth 0 | rg [├└]── | awk '{ print $2 }' |
 Or remove each manually...
 
 ```bash
-sudo npm remove -g elm-oracle
+sudo npm remove -g elm-format
 sudo npm remove -g elm-test
 sudo npm remove -g elm
 ```
@@ -72,7 +72,7 @@ mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
 ```
 
-Add the following to ~/.bash_profile, ~/.bashrc, ~/.profile, ~/.zshrc, or ~/.zshenv as appropriate for your distribution.
+Add the following to `~/.bash_profile`, `~/.bashrc`, `~/.profile`, `~/.zshrc`, or `~/.zshenv` as appropriate for your distribution.
 
 ```bash
 export NPM_CONFIG_PREFIX=~/.npm-global
@@ -134,9 +134,9 @@ At this time, I cannot recommend LightTable for Elm 0.19 development.
 
 [LSP](https://lsp.readthedocs.io/en/latest/), [LSP-elm](https://lsp.readthedocs.io/en/latest/#elm), [Elm Syntax Highlighting](https://github.com/evancz/elm-syntax-highlighting), and [Elm Format on Save](https://github.com/evancz/elm-format-on-save) combine to form a very effective development environment for Elm.  The resulting environment feels lightweight and responsive and it provides the user with just the right amount of feedback without being distracting.
 
-####  [Vim](https://www.vim.org/) or [NeoVim](https://neovim.io/) with [elm-vim](https://github.com/ElmCast/elm-vim)
+####  [Vim](https://www.vim.org/) or [NeoVim](https://neovim.io/) with [Conquer of Completion](https://github.com/neoclide/coc.nvim)/[theJian/elm.vim](https://github.com/theJian/elm.vim)
 
-
+Like Emacs, [Vim](https://www.vim.org/)/[NeoVim](https://neovim.io/) provides the development experience using the [elm-language-server](https://github.com/elm-tooling/elm-language-server).  Follow the instructions provided on the [elm-language-server page](https://github.com/elm-tooling/elm-language-server#vim) to configure Conquer of Completion and use the [example .vimrc](https://github.com/elm-tooling/elm-vim/tree/master/vim-config-example) as a good starting point for your configuration.  Also like Emacs, setting up Vim/NeoVim for Elm development is more challenging than form most of the other editors in this list, but the end result is very responsive and very satisfying to work in.
 
 #### [Visual Studio Code](https://code.visualstudio.com/) with [Elm](https://github.com/elm-tooling/elm-language-client-vscode)
 
