@@ -124,13 +124,13 @@ Since I use Doom Emacs for development in Elm, I wanted to share a few notes.
 
 Also, if you are running Windows and have trouble getting spell checking to work correctly, I found the following to be helpful: [ispell/hunspell/Windows: a fully-worked example](https://lists.gnu.org/archive/html/help-gnu-emacs/2014-04/msg00030.html).
 
-#### [JetBrains IntelliJ IDEA](https://www.jetbrains.com/idea/) or [JetBrains WebStorm](https://www.jetbrains.com/webstorm/) with  [intellij.elm](https://github.com/klazuka/intellij-elm)
+#### [JetBrains IntelliJ IDEA](https://www.jetbrains.com/idea/) or [JetBrains WebStorm](https://www.jetbrains.com/webstorm/) with the [Elm plugin](https://plugins.jetbrains.com/plugin/10268-elm/)
 
-
+As you would expect from a JetBrains product, the JetBrains Elm plugin provides an exceptional development experience for the Elm developer.  If you're already using IntelliJ IDEA or WebStorm, you won't be disappointed with the Elm support.
 
 #### [LightTable](http://lighttable.com/) with [elm-light](https://github.com/rundis/elm-light)
 
-I was not able to use the Linux binary provided on LightTable.com or build a Linux binary that would run successfully on any recent version of Linux (Fedora 32, Manjaro 20.0.3, NixOS 2.3.7 or Ubuntu 20.04).
+I was not able to use the Linux binary provided on LightTable.com nor build a Linux binary that would run successfully on any recent version of Linux (Fedora 32, Manjaro 20.0.3, NixOS 2.3.7 or Ubuntu 20.04).
 
 I was able to install LightTable and the elm-light plugin on Windows 10, but even after after following the [Elm Light Guide](https://rundis.gitbooks.io/elm-light-guide/content/) to configure the elm-light plugin on Windows 10, I was not able to use it because the elm-light plugin supports only [versions of Elm prior to 0.19](https://github.com/elm/compiler/blob/master/docs/upgrade-instructions/0.19.0.md).
 
