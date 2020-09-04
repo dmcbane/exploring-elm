@@ -79,25 +79,19 @@ export NPM_CONFIG_PREFIX=~/.npm-global
 export PATH=$PATH:~/.npm-global/bin
 ```
 
-Sourced the file to get the updated environment variables.
+Source the file, as appropriate to your distribution, to get the updated environment variables.
 
 ```bash
 source ~/.bash_profile
-```
-```bash
+# or
 source ~/.bashrc
-```
-```bash
+# or
 source ~/.profile
-```
-```bash
+# or
 source ~/.zshrc
-```
-```bash
+# or
 source ~/.zshenv
 ```
-
-
 This should resolve the permissions errors for the npm commands above.
 
 ### Selecting an Editor
