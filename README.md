@@ -2,7 +2,7 @@
 
 This is a recounting of my journey to determine if the [Elm programming language](https://elm-lang.org/) would live up to its promise and potentially become my tool of choice for web browser-based front end development. My journey started long before this recounting. I have more than 30 years of experience with software development, some limited experience with functional programming, but I have never used Elm in any capacity.  After fighting the HTML5/CSS/JavaScript battle yet again I began this analysis of alternatives.  I was looking for a better way and Elm looked promising.
 
-## Preparing Your Development Environment
+## 1. Preparing Your Development Environment
 
 Any exploration into a new language begins with preparing the development environment.
 
@@ -43,34 +43,36 @@ npm install -g elm-test
 ```
 
 #### Resolving Permissions Errors
-For Fedora Linux, you may need to follow the instructions below [(based on the instructions here)](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally) to resolve the permissions issues for installing globally.  You can perform this procedure on any Linux distribution and MacOS, but it does not apply to Windows outside of WSL.  (During testing, I successfully completed the following procedure on Fedora 32, Manjaro 20.0.3, NixOS 2.3.7 and Ubuntu 20.04).  
+For Fedora Linux, you may need to follow the instructions below [(based on the instructions here)](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally) to resolve the permissions issues for installing globally.  You can perform this procedure on any Linux distribution and MacOS, but it does not apply to Windows outside of WSL.  During testing, I successfully completed the following procedure on Fedora 32, Manjaro 20.0.3, NixOS 2.3.7 and Ubuntu 20.04 (both stand alone and under the Windows Subsystem for Linux).
 
-To start, find the previously installed global packages.
+##### Optionally Remove Global Packages
 
-```bash
-sudo npm list -g --depth 0
-```
-Automate removal with shell...
+If you do not need your global packages to be available to other users or processes, you may want remove the existing packages before relocating your global local repository.  You can remove the global packages automatically from within your shell with the following.
 
 ```bash
 npm remove -g $(npm list -g --depth 0 | rg [├└]── | awk '{ print $2 }' | sed -E 's/^(@?.*?)@.*/\1/' -)
 ```
-Or remove each manually...
+If you need to pick and choose which global packages to remove, you can list the currently installed global packages with the following.
 
 ```bash
-sudo npm remove -g elm-format
-sudo npm remove -g elm-test
-sudo npm remove -g elm
+sudo npm list -g --depth 0
+```
+And then remove each manually with the following.
+
+```bash
+sudo npm remove -g <package name>
 ```
 
- Create and initialize a directory for global installations.
+##### Establishing the Location of your Global Packages
+
+Create and initialize a directory for global installations.
 
 ```bash
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
 ```
 
-Add the following to `~/.bash_profile`, `~/.bashrc`, `~/.profile`, `~/.zshrc`, or `~/.zshenv` as appropriate for your distribution.
+Add the following to `~/.bash_profile`, `~/.bashrc`, `~/.profile`, `~/.zshrc`, or `~/.zshenv` as appropriate for your shell of choice.
 
 ```bash
 export NPM_CONFIG_PREFIX=~/.npm-global
@@ -90,7 +92,7 @@ source ~/.zshrc
 # or
 source ~/.zshenv
 ```
-This should resolve the permissions errors for the npm commands above.
+This should resolve the permissions errors so that you can successfully install the packages as shown [above](#Install the Compiler and Tools).
 
 ### Selecting an Editor
 
@@ -140,7 +142,7 @@ Like Emacs, [Vim](https://www.vim.org/)/[NeoVim](https://neovim.io/) provides th
 
  Beginning users will love VSCode with Elm.  It is exceptionally easy to setup (install the [Elm plugin](https://marketplace.visualstudio.com/items?itemName=Elmtooling.elm-ls-vscode) and go) and provides all of the features you would expect from a full-featured editor.  **Definitely one of the better solutions in this list** and my recommendation for beginners or for anyone who what's to get started with minimal fuss.
 
-## First Elm Program
+## 1. First Elm Program
 
 One of the biggest factors that led to my giving Elm a try was the quality of the compiler's error messages.  After reading what I assumed to be a lot of hype related to error messages.  I decided to put it to the test.
 
