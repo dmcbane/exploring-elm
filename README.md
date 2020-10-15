@@ -144,7 +144,7 @@ Like Emacs, setting up Vim/NeoVim for Elm development is more challenging than m
 
  Beginning users will love [VSCode](https://code.visualstudio.com/) for Elm development.  It is exceptionally easy to setup (simply install the [Elm plugin](https://marketplace.visualstudio.com/items?itemName=Elmtooling.elm-ls-vscode)) and provides all of the features you would expect from a full-featured editor.  **Definitely one of the better solutions in this list** and my recommendation for beginners or for anyone who want's to get started with minimal fuss.
 
-## 1. First Elm Program
+## 2. First Elm Program
 
 One of the biggest factors that led to my giving Elm a try was the alleged quality of the compiler's error messages.  After reading what I expected to be a lot of hype related to the error messages, I decided to put it to the test.
 
@@ -425,7 +425,7 @@ main =
 	greet "World"
 ```
 
-The error changes again; this time is shows
+The error changes again; this time showing...
 
 ```
 -- TYPE MISMATCH ------------------- C:\Users\dalem\src\elm\elm-one\src\Main.elm
@@ -442,6 +442,28 @@ But the type annotation on `main` says it should be:
 
     Html msg
 ```
+
+Going back to the page offered by the earlier Hint ([https://elm-lang.org/0.19.1/imports](https://elm-lang.org/0.19.1/imports)), we find that the [Html.text function](https://package.elm-lang.org/packages/elm-lang/html/latest/Html#text) will do the job.  The updated `src/Main.elm` looks like the following.
+
+```elm
+module Main exposing (..)
+
+import Html exposing (Html, text)
+
+greet : String -> String
+greet name =
+    "Hello " ++ name ++ "!"
+
+type User = Anonymous | LoggedIn String
+
+main: Html msg
+main =
+	text (greet "World")
+```
+
+Success!  The reactor output displays "Hello World!" as expected.
+
+## 3. Warning Cleanup
 
 
 
